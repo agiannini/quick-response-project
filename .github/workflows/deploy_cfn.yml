@@ -38,4 +38,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           aws sts get-caller-identity;
+	  ls;
+          cd cnf; 
+	  aws s3 aws cloudformation create-stack --stack-name s3-deploy --template-body file://cfn_deploy_s3.yaml;
           echo test, and deploy your project.
