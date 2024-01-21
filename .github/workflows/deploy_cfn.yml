@@ -51,7 +51,7 @@ jobs:
 
       - name: upload contents of index.html file 
         run: |
-              aws s3 syncc --acl "public-read" src s3://deploy-s3-root
+              aws s3 sync --acl "public-read" src s3://deploy-s3-root
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
