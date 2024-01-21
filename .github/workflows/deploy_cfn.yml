@@ -44,6 +44,6 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: deploy-s3
-          template: cfn/deploy_s3.yaml  
+          template: cfn/cfn_deploy_s3.yaml  
         continue-on-error: true
 
