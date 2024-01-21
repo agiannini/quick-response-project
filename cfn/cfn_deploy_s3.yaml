@@ -4,7 +4,7 @@ Description: Static website
 
 Parameters:
   DomainName:
-    Description: Domain name of website
+    Description: Domain of website
     Type: String
 
 Resources:
