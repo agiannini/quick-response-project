@@ -3,8 +3,8 @@ on:
   push:
     branches: 
       - main
-    paths:
-      - cfn/**
+  #  paths:
+  #    - cfn/**
   workflow_dispatch:
 jobs:
   build:
@@ -46,4 +46,18 @@ jobs:
           name: deploy-s3
           template: cfn/cfn_deploy_s3.yaml  
         continue-on-error: true
+
+
+
+      - name: upload contents of index.html file 
+        run: |
+              pwd; cd src; aws s3 cp --acl "public-read" index.html s3://deploy-s3-root
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
+        continue-on-error: true
+
+
+
 
