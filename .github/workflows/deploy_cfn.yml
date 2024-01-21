@@ -23,7 +23,7 @@ jobs:
           aws-region: us-east-1
         continue-on-error: true
 
-      - name: get s3 name
+      - name: determine if s3 stack has been created 
         run: |
               aws cloudformation --region us-east-1 describe-stacks --stack-name deploy-s3
               if [[ "$?" == 0 ]]
