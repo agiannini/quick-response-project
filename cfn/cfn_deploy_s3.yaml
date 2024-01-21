@@ -21,6 +21,8 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
       OwnershipControls:  
         Rules:
           - ObjectOwnership: ObjectWriter
