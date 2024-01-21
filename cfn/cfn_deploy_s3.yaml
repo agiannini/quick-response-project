@@ -21,7 +21,9 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      AccessControl: PublicRead
+      OwnershipControls:  
+        Rules:
+          - ObjectOwnership: ObjectWriter
       BucketName: !Sub '${AWS::StackName}-root'
       LoggingConfiguration:
         DestinationBucketName: !Ref S3BucketLogs
